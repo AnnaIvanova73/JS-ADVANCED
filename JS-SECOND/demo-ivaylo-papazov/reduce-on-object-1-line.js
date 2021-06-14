@@ -1,0 +1,1 @@
+//return {...acc, acc[i + 1]: 0 }

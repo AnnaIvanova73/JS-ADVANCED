@@ -1,0 +1,20 @@
+.delete{
+    background-color: #4CAF50; /* Green */
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+body {
+    background-color: lightgrey;
+    color: blue;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    text-align: left;
+}

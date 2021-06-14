@@ -1,0 +1,13 @@
+.border{
+    border: 5px orange solid
+}
+#special{
+    color: palevioletred;
+}
+button {
+    background-color: greenyellow !important;
+    border: yellow dotted;
+}
+button{
+    background-color: blue;
+}
