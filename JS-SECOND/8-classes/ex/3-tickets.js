@@ -14,7 +14,6 @@ function solve(paramArr, parameterSort) {
 
     return paramArr.map(e => new Ticket(e.split('|')))
         .sort(sorted);
-
 }
 //
 // function solve(paramArr, parameterSort){
