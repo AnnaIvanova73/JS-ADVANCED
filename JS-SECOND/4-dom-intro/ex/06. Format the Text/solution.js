@@ -41,3 +41,33 @@ function solve() {
 }
 
  */
+/*
+function solve() {
+
+    const output = document.getElementById('output');
+    let input = document.getElementById('input').value
+
+        let text = input.split('.').map(e => e.trim()).filter(e => e !== '');
+        const n = 3
+        const result = new Array(Math.ceil(text.length / n))
+            .fill()
+            .map(_ => text.splice(0, n))
+
+        result.forEach(e => {
+            let text = e.reduce((acc, e) => {
+                acc += e
+                acc+='.'
+                return acc
+            }, '');
+
+            createParagraph(document.createTextNode(text))
+        })
+
+
+    function createParagraph(text) {
+        let p = document.createElement('p');
+        p.appendChild(text)
+        output.appendChild(p)
+    }
+}
+ */
