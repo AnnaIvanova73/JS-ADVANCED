@@ -1,3 +1,49 @@
+let pizzUni = {
+
+    makeAnOrder: function (obj) {
+        if (!obj.orderedPizza) {
+            throw new Error('You must order at least 1 Pizza to finish the order.');
+
+        } else {
+            let result = `You just ordered ${obj.orderedPizza}`
+
+            if (obj.orderedDrink) {
+                result += ` and ${obj.orderedDrink}.`
+            }
+            return result;
+        }
+    },
+
+
+    getRemainingWork: function (statusArr) {
+        const remainingArr = statusArr.filter(s => s.status !== 'ready');
+        if (remainingArr.length > 0) {
+            let pizzaNames = remainingArr.map(p => p.pizzaName).join(', ')
+            let pizzasLeft = `The following pizzas are still preparing: ${pizzaNames}.`
+            return pizzasLeft;
+        } else {
+            return 'All orders are complete!'
+
+        }
+    },
+
+
+    orderType: function (totalSum, typeOfOrder) {
+        if (typeOfOrder === 'Carry Out') {
+
+            totalSum -= totalSum * 0.1;
+
+            return totalSum;
+
+        } else if (typeOfOrder === 'Delivery') {
+
+            return totalSum;
+        }
+    }
+
+}
+let assert = require('chai').assert;
+
 describe('pizzUni', () => {
 
     describe('test_MakeAnOrder', () => {
@@ -32,14 +78,14 @@ describe('pizzUni', () => {
     describe('test_GetRemainingWork', () => {
         it('itHasRemainingWork/arr not empty', () => {
             assert.strictEqual(pizzUni.getRemainingWork([{pizzaName: 'SomePizza', status: 'preparing'},
-                {pizzaName: 'Neapolitana', status: 'preparing'}]), 'The following pizzas are still preparing: SomePizza, Neapolitana.');
+                    {pizzaName: 'Neapolitana', status: 'preparing'}]), 'The following pizzas are still preparing: SomePizza, Neapolitana.');
             assert.strictEqual(pizzUni.getRemainingWork([{pizzaName: 'SomePizza', status: 'preparing'},
-                {pizzaName: 'Neapolitana', status: 'ready'}]), 'The following pizzas are still preparing: SomePizza.');
+                    {pizzaName: 'Neapolitana', status: 'ready'}]), 'The following pizzas are still preparing: SomePizza.');
 
         });
         it('no_Remaining_Work/arr_Empty', () => {
             assert.strictEqual(pizzUni.getRemainingWork([{pizzaName: 'SomePizza', status: 'ready'},
-                {pizzaName: 'Neapolitana', status: 'ready'}]), 'All orders are complete!');
+                    {pizzaName: 'Neapolitana', status: 'ready'}]), 'All orders are complete!');
             assert.strictEqual(pizzUni.getRemainingWork([]), 'All orders are complete!');
         });
 
